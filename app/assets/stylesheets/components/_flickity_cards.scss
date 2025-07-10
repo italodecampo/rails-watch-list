@@ -1,0 +1,77 @@
+.gallery {
+  background: transparent;
+  margin-top: 2rem;
+  margin: 0 auto;
+  max-width: 960px;  // or whatever fits your layout
+  padding-left: 20px; // a small buffer so the first card is visible
+
+  width: 100%;
+  padding: 1rem 0;
+
+  &.few-cards {
+    padding-left: calc(50% - 150px); // dynamically push cards center-ish when only a few
+    // assuming 300px card width, adjust 150px accordingly
+  }
+}
+
+.gallery-cell {
+  height: 300px !important;  // make sure Flickity respects this height
+  width: 250px;              // fixed width for consistency (adjust as you want)
+  margin-right: 20px;
+  border-radius: 15px;       // rounded corners for style
+  overflow: hidden;          // keep content tidy inside rounded edges
+  background: rgba(255, 255, 255, 0.2); // frosted glass feel base (adjust opacity)
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  // push button to bottom
+  padding: 15px;
+}
+
+.gallery-cell .card-title {
+  text-align: center;        // center the heading inside each card
+  margin-bottom: auto;       // push the title up if needed
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.frosted-card {
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+
+  img.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .btn {
+      margin-top: auto;
+      border-radius: 999px;
+    }
+  }
+
+  .gallery-wrapper {
+  width: 100vw;
+  padding: 0 2rem; // space on left and right
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  }
+}

@@ -1,10 +1,31 @@
-<h1>Movie Lists</h1>
-<ul>
-  <% @lists.each do |list| %>
-  <li>
-    <%= link_to list.name, list_path(list) %>
-  </li>
-  <% end %>
-</ul>
+<div class="container-fluid home-background">
+  <h1 class="text-center mb-4 text-white">My Movie Lists</h1>
 
-<%= link_to "Create New List", new_list_path, class: "btn btn-primary" %>
+  <% if @lists.empty? %>
+    <p class="text-center text-muted">You don't have any movie lists yet.</p>
+    <div class="text-center">
+      <%= link_to "+ Create Your First List", new_list_path, class: "btn btn-success" %>
+    </div>
+  <% else %>
+  <div class="gallery-wrapper">
+    <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+      <% @lists.each do |list| %>
+        <div class="gallery-cell">
+          <div class="frosted-card">
+            <% if list.post_url.present? %>
+              <%= image_tag list.post_url, class: "card-img-top", alt: list.name %>
+            <% end %>
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title"><%= list.name %></h5>
+              <%= link_to "View List", list_path(list), class: "btn btn-outline-light btn-sm mt-auto" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+    <div class="text-center mt-4">
+      <%= link_to "+ Create New List", new_list_path, class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
