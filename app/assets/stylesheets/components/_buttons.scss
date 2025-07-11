@@ -1,0 +1,108 @@
+// Fancy glowing button from Uiverse.io
+.fancy-button {
+  cursor: pointer;
+  font-size: 1.4rem;
+  border-radius: 16px;
+  border: none;
+  padding: 2px;
+  background: radial-gradient(circle 80px at 80% -10%, #ff2c3f, #121212);
+  position: relative;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+  display: inline-block; // <== THIS stops it from going full width
+  width: auto;           // Prevents full container width
+  max-width: 100%;       // Keeps it responsive
+  text-align: center;
+  margin: 0 auto;        // Optional: Center it horizontally
+}
+.fancy-button:hover {
+  transform: scale(0.98);
+}
+.fancy-button::after {
+  content: "";
+  position: absolute;
+  width: 65%;
+  height: 60%;
+  border-radius: 120px;
+  top: 0;
+  right: 0;
+  box-shadow: 0 0 20px #ffffff38;
+  z-index: -1;
+  transition: box-shadow 0.3s;
+}
+.fancy-button:hover::after {
+  box-shadow: 0 0 10px #ffffff18;
+}
+
+.fancy-button .blob1 {
+  position: absolute;
+  width: 70px;
+  height: 100%;
+  border-radius: 16px;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle 60px at 0% 100%, #3fe9ff, #0000ff80, transparent);
+  box-shadow: -10px 10px 30px #0051ff2d;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.fancy-button:hover .blob1 {
+  box-shadow: -5px 5px 20px #000;
+}
+
+.fancy-button .blob2 {
+  display: none; // You’re not using this, but define it anyway
+}
+
+.fancy-button .inner {
+  padding: 14px 25px;
+  border-radius: 14px;
+  color: #fff;
+  z-index: 3;
+  position: relative;
+  background: radial-gradient(circle 80px at 80% -50%, #e50914, #0a0a0a);
+  transition: background 0.3s;
+}
+.fancy-button:hover .inner {
+  background: radial-gradient(circle 80px at 80% -50%, #ff2c3f, #0f0f0f);
+}
+.fancy-button .inner::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 14px;
+  background: radial-gradient(circle 60px at 0% 100%, #00e1ff1a, #0000ff11, transparent);
+  position: absolute;
+  transition: opacity 0.3s;
+}
+.fancy-button:hover .inner::before {
+  opacity: 0;
+}
+
+.blob1 {
+  background: radial-gradient(circle 60px at 0% 100%, #ff2c3f, #e5091480, transparent);
+  box-shadow: -10px 10px 30px #ff2c3f33;
+}
+
+/* Fancy button (simplified version to work everywhere) */
+.button {
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  background: radial-gradient(circle 80px at 80% -10%, #ff3c3c, #111);
+  box-shadow: 0 4px 15px rgba(255, 60, 60, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  transform: scale(0.98);
+  background: radial-gradient(circle 80px at 80% -10%, #cc0000, #000);
+}

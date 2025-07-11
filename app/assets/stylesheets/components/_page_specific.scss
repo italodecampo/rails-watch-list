@@ -1,7 +1,22 @@
-.lists-show h1,
+// .lists-show h1,
+// .lists-show h2 {
+//   color: #4f4a4a;
+// }
+
+/* Make h2 black on lists#show page */
 .lists-show h2 {
-  color: #4f4a4a; 
+  color: #000000;
 }
+
+.lists-show {
+  background: linear-gradient(to bottom right, #1a1a1a, #2e0000);
+  min-height: 100vh; // makes sure it covers the whole viewport
+  padding-top: 30px; // gives room under the navbar or header
+  color: white; // makes all text white by default
+}
+
+
+
 
 //.home-index { /* for home page if you set root to home#index */ }
 //.lists-new { /* for new list form */ }

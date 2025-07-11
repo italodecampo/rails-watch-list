@@ -2,7 +2,7 @@
   <h1 class="text-center mb-4 text-white">My Movie Lists</h1>
 
   <% if @lists.empty? %>
-    <p class="text-center text-muted">You don't have any movie lists yet.</p>
+    <p class="text-center text-white"><strong> You have no Movie Lists.</strong></p>
     <div class="text-center">
       <%= link_to "+ Create Your First List", new_list_path, class: "btn btn-success" %>
     </div>
@@ -25,7 +25,34 @@
     </div>
   </div>
     <div class="text-center mt-4">
-      <%= link_to "+ Create New List", new_list_path, class: "btn btn-success" %>
+      <%= link_to new_list_path, class: "fancy-button" do %>
+        <div class="blob1"></div>
+        <div class="blob2"></div>
+        <div class="inner">+ Create New List</div>
+      <% end %>
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.querySelector('.gallery');
+  if (!gallery) return;
+
+  const cells = gallery.querySelectorAll('.gallery-cell');
+  const flickityOptions = {
+    cellAlign: 'center',
+    contain: true,
+    // we'll set wrapAround dynamically
+  };
+
+  if (cells.length > 3) {
+    flickityOptions.wrapAround = true;
+  } else {
+    flickityOptions.wrapAround = false;
+  }
+
+  // Initialize Flickity
+  new Flickity(gallery, flickityOptions);
+});
+</script>
